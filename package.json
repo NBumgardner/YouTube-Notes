@@ -1,0 +1,32 @@
+{
+  "name": "musical-chess",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Chess and music single page web app",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NBumgardner/musical-chess.git"
+  },
+  "keywords": [
+    "chess",
+    "music"
+  ],
+  "author": "Noah Bumgardner",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.4.0",
+    "serve-static": "^1.10.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "bugs": {
+    "url": "https://github.com/NBumgardner/musical-chess/issues"
+  },
+  "homepage": "https://github.com/NBumgardner/musical-chess#readme"
+}
