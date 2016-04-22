@@ -1,8 +1,8 @@
 {
-  "name": "musical-chess",
+  "name": "YouTube-Notes",
   "private": true,
   "version": "1.0.0",
-  "description": "Chess and music single page web app",
+  "description": "Single page web app for taking notes while watching YouTube playlists",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NBumgardner/musical-chess.git"
+    "url": "git+https://github.com/NBumgardner/YouTube-Notes.git"
   },
   "keywords": [
-    "chess",
-    "music"
+    "YouTube",
+    "notes"
   ],
   "author": "Noah Bumgardner",
   "license": "MIT",
