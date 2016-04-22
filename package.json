@@ -19,8 +19,10 @@
   "author": "Noah Bumgardner",
   "license": "MIT",
   "dependencies": {
+    "@polymer/polymer": "^1.2.5-npm-test.2",
     "connect": "^3.4.0",
-    "serve-static": "^1.10.2"
+    "serve-static": "^1.10.2",
+    "page": "github:visionmedia/page.js"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
