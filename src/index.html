@@ -3,10 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <title>YouTube Notes</title>
+  <script>
+    window.Polymer = window.Polymer || {};
+    window.Polymer.dom = 'shadow';
+  </script>
+  <script src="node_modules/page/page.js"></script>
 	<link rel="Stylesheet" media="all" href="styles/index.css" />
 </head>
 <body>
   <h1>YouTube Notes</h1>
+  <save-notes></save-notes>
+  <watch-video></watch-video>
+  <choose-video></choose-video>
   <p>Hello, World!</p>
 </body>
 </html>
