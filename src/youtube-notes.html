@@ -1,6 +1,6 @@
 <link rel="import" href="node_modules/@polymer/polymer/polymer.html" />
 
-<dom-module id="user-page">
+<dom-module id="youtube-notes">
 
   <template>
 
@@ -12,11 +12,16 @@
       <div>{{user.secretAdminStuff}}</div>
     </template>
 
+    <template is="dom-if" if="1">
+      Everyone will see this.
+      <div>This div comes from youtube-notes.</div>
+    </template>
+
   </template>
 
   <script>
     Polymer({
-      is: 'user-page',
+      is: 'youtube-notes',
       properties: {
         user: Object
       }
