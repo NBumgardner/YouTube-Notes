@@ -4,27 +4,44 @@
 
   <template>
 
-    All users will see this:
-    <div>{{user.name}}</div>
+    <div>Header</div>
 
     <template is="dom-if" if="{{flag1_}}">
-      Only admins will see this.
-      <div>{{user.secretAdminStuff}}</div>
+      <div>Flag 1 content</div>
     </template>
 
-    <template is="dom-if" if="1">
-      Everyone will see this.
-      <div>This div comes from youtube-notes.</div>
+    <template is="dom-if" if="{{flag2_}}">
+      <div>Flag 2 content</div>
     </template>
+
+    <template is="dom-if" if="{{flag3_}}">
+      <div>Flag 3 content</div>
+    </template>
+
+    <div>Footer</div>
 
   </template>
 
   <script>
+    // element registration
     Polymer({
       is: 'youtube-notes',
+
+      // add properties and methods on the element's prototype
       properties: {
+        // declare properties for the element's public API
         user: Object,
+
+				// 3 flags to enable and disable above templates.
 				flag1_: {
+				  type: Boolean,
+					value: true
+			  },
+				flag2_: {
+				  type: Boolean,
+					value: true
+			  },
+				flag3_: {
 				  type: Boolean,
 					value: true
 			  }
