@@ -1,0 +1,26 @@
+<link rel="import" href="node_modules/@polymer/polymer/polymer.html" />
+
+<dom-module id="user-page">
+
+  <template>
+
+    All users will see this:
+    <div>{{user.name}}</div>
+
+    <template is="dom-if" if="{{user.isAdmin}}">
+      Only admins will see this.
+      <div>{{user.secretAdminStuff}}</div>
+    </template>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'user-page',
+      properties: {
+        user: Object
+      }
+    });
+  </script>
+
+</dom-module>
