@@ -7,7 +7,7 @@
     All users will see this:
     <div>{{user.name}}</div>
 
-    <template is="dom-if" if="{{user.isAdmin}}">
+    <template is="dom-if" if="{{flag1_}}">
       Only admins will see this.
       <div>{{user.secretAdminStuff}}</div>
     </template>
@@ -23,7 +23,11 @@
     Polymer({
       is: 'youtube-notes',
       properties: {
-        user: Object
+        user: Object,
+				flag1_: {
+				  type: Boolean,
+					value: true
+			  }
       }
     });
   </script>
