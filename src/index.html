@@ -8,23 +8,15 @@
     window.Polymer.dom = 'shadow';
   </script>
   <script src="node_modules/page/page.js"></script>
-	<link rel="Stylesheet" media="all" href="./index.css" />
-  <link rel="import" href="./save-notes.html" />
-  <link rel="import" href="./watch-video.html" />
-  <link rel="import" href="./choose-video.html" />
+  <style>
+		body {
+			background: #f5f5f5;
+			font-family: verdana;
+		}
+  </style>
+  <link rel="import" href="./youtube-notes.html" />
 </head>
 <body>
-  <header>
-    <h1>YouTube Notes</h1>
-    <nav>
-      <a href="/choose-video">Choose Video</a>
-      <a href="/watch-video">Watch Video</a>
-      <a href="/save-notes">Load/Save Notes</a>
-    </nav>
-  </header>
-  <choose-video></choose-video>
-  <watch-video></watch-video>
-  <save-notes></save-notes>
-  <p>Hello, World!</p>
+  <youtube-notes></youtube-notes>
 </body>
 </html>

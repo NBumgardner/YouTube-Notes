@@ -1,0 +1,66 @@
+<link rel="import" href="node_modules/@polymer/polymer/polymer.html" />
+
+<dom-module id="youtube-notes">
+
+  <template>
+		<style>
+			h1 {
+				color: maroon;
+			}
+			header {
+				background: #fff;
+			}
+		</style>
+		<header>
+			<h1>YouTube Notes</h1>
+			<nav>
+				<a href="/choose-video">Choose Video</a>
+				<a href="/watch-video">Watch Video</a>
+				<a href="/save-notes">Load/Save Notes</a>
+			</nav>
+		</header>
+
+    <template is="dom-if" if="{{flag1_}}">
+      <div>Choose Video content</div>
+    </template>
+
+    <template is="dom-if" if="{{flag2_}}">
+      <div>Watch Video content</div>
+    </template>
+
+    <template is="dom-if" if="{{flag3_}}">
+      <div>Save Notes content</div>
+    </template>
+
+    <p>Footer</p>
+
+  </template>
+
+  <script>
+    // element registration
+    Polymer({
+      is: 'youtube-notes',
+
+      // add properties and methods on the element's prototype
+      properties: {
+        // declare properties for the element's public API
+        user: Object,
+
+				// 3 flags to enable and disable above templates.
+				flag1_: {
+				  type: Boolean,
+					value: true
+			  },
+				flag2_: {
+				  type: Boolean,
+					value: true
+			  },
+				flag3_: {
+				  type: Boolean,
+					value: true
+			  }
+      }
+    });
+  </script>
+
+</dom-module>
