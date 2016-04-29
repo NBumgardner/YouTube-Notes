@@ -16,19 +16,32 @@
   </style>
   <script>
     (function () {
+      // Sets up routes.
+      // Q: Explain further?
+      // Q: Is ':event' replaced by some variable?
+      // Q: Does 'next()' mean this is function is an iterator?
+      // Q: Why is there no 'next' function definition? Is it defined in page.js?
       page('/:event', function (context, next) {
+        // Q: Explain 'context' variable, and why setting its 'handled' value to true helps?
         context.handled = true;
 
         console.log(context);
+        // Sets the event attribute of <youtube-notes>. Not yet useful.
         changeEventId(context.params.event);
 
+        // URL:  https://visionmedia.github.io/page.js/
+        // "... to pass control to the following matching route in sequence ..."
+        // Q: Explain?
         next();
       });
 
       function changeEventId(newId) {
+        // Adds an event="newId" attribute to the <youtube-notes> tag.
+        // TODO: Replace 'event' with a variable actually used in youtube-notes.html.
         document.getElementsByTagName('youtube-notes')[0].setAttribute('event', newId);
       }
 
+      // Start the router.
       page.start();
     })();
   </script>
