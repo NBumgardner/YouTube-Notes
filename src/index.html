@@ -9,11 +9,29 @@
   </script>
   <script src="node_modules/page/page.js"></script>
   <style>
-		body {
-			background: #f5f5f5;
-			font-family: verdana;
-		}
+    body {
+      background: #f5f5f5;
+      font-family: verdana;
+    }
   </style>
+  <script>
+    (function () {
+      page('/:event', function (context, next) {
+        context.handled = true;
+
+        console.log(context);
+        changeEventId(context.params.event);
+
+        next();
+      });
+
+      function changeEventId(newId) {
+        document.getElementsByTagName('youtube-notes')[0].setAttribute('event', newId);
+      }
+
+      page.start();
+    })();
+  </script>
   <link rel="import" href="./youtube-notes.html" />
 </head>
 <body>
