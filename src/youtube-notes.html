@@ -3,22 +3,22 @@
 <dom-module id="youtube-notes">
 
   <template>
-		<style>
-			h1 {
-				color: maroon;
-			}
-			header {
-				background: #fff;
-			}
-		</style>
-		<header>
-			<h1>YouTube Notes</h1>
-			<nav>
-				<a href="/choose-video">Choose Video</a>
-				<a href="/watch-video">Watch Video</a>
-				<a href="/save-notes">Load/Save Notes</a>
-			</nav>
-		</header>
+    <style>
+      h1 {
+        color: maroon;
+      }
+      header {
+        background: #fff;
+      }
+    </style>
+    <header>
+      <h1>YouTube Notes</h1>
+      <nav>
+        <a href="/choose-video">Choose Video</a>
+        <a href="/watch-video">Watch Video</a>
+        <a href="/save-notes">Load/Save Notes</a>
+      </nav>
+    </header>
 
     <template is="dom-if" if="{{flag1_}}">
       <div>Choose Video content</div>
@@ -26,6 +26,9 @@
 
     <template is="dom-if" if="{{flag2_}}">
       <div>Watch Video content</div>
+      <iframe id="ytplayer" type="text/html" width="640" height="390"
+        src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://localhost:8080"
+        frameborder="0"></iframe>
     </template>
 
     <template is="dom-if" if="{{flag3_}}">
@@ -46,19 +49,19 @@
         // declare properties for the element's public API
         user: Object,
 
-				// 3 flags to enable and disable above templates.
-				flag1_: {
-				  type: Boolean,
-					value: true
-			  },
-				flag2_: {
-				  type: Boolean,
-					value: true
-			  },
-				flag3_: {
-				  type: Boolean,
-					value: true
-			  }
+        // 3 flags to enable and disable above templates.
+        flag1_: {
+          type: Boolean,
+          value: true
+        },
+        flag2_: {
+          type: Boolean,
+          value: true
+        },
+        flag3_: {
+          type: Boolean,
+          value: true
+        }
       }
     });
   </script>
