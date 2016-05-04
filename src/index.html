@@ -16,6 +16,19 @@
   </style>
   <script>
     (function () {
+      // Called when user returns to the initial
+      //   view with back arrow navigation.
+      page('/', function (context, next) {
+        context.handled = true;
+
+        console.log(context);
+        changeEventId(context.params.event);
+
+        next();
+      });
+
+      // Called when user navigates to any valid or invalid web page?
+      // Called when user navigates to a view.
       page('/:event', function (context, next) {
         context.handled = true;
 
