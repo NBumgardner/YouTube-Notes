@@ -62,19 +62,60 @@
         // declare properties for the element's public API
         user: Object,
 
+        APIKey_: {
+          type: String,
+          value: ""
+        },
+
         // 3 flags to enable and disable above templates.
         flagList_: {
           type: Boolean,
-          value: true
+          value: false
         },
         flagVideo_: {
           type: Boolean,
-          value: true
+          value: false
         },
         flagNotes_: {
           type: Boolean,
-          value: true
+          value: false
         }
+      },
+
+      // 4 Functions for setting the flags when arriving at a view.
+      removeAllViews: function() {
+        this.flagList_ = false;
+        this.flagVideo_ = false;
+        this.flagNotes_ = false;
+      },
+      change2ViewChoose: function() {
+        //removeAllViews();
+        this.removeAllViews();
+        this.flagList_ = true;
+        //this.flagVideo_ = false;
+        //this.flagNotes_ = false;
+        ;
+      },
+      change2ViewWatch: function() {
+        //removeAllViews();
+        this.removeAllViews();
+        this.flagVideo_ = true;
+        this.flagNotes_ = true;
+        ;
+      },
+      change2ViewNotes: function() {
+        //removeAllViews();
+        this.removeAllViews();
+        this.flagNotes_ = true;
+        ;
+      },
+
+      attached: function() {
+        this.APIKey_ = ""; // TODO: Replace with authentication key.
+        // document.getElementById
+        //change2ViewChoose();
+        this.change2ViewChoose();
+        ;
       }
 
       // Desired Feature: Change rows of textarea based on view.

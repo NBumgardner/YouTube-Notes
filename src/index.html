@@ -39,7 +39,8 @@
       });
 
       function changeEventId(newId) {
-        document.getElementsByTagName('youtube-notes')[0].setAttribute('event', newId);
+        // Causes error because <youtube-notes> does not begin with event="".
+        //document.getElementsByTagName('youtube-notes')[0].setAttribute('event', newId);
       }
 
       page.start();
