@@ -35,6 +35,16 @@
         console.log(context);
         changeEventId(context.params.event);
 
+        if (context.params.event === "choose-video") {
+          document.getElementsByTagName('youtube-notes')[0].change2ViewChoose();
+        } else if (context.params.event === "watch-video") {
+          document.getElementsByTagName('youtube-notes')[0].change2ViewWatch();
+        } else if (context.params.event === "save-notes") {
+          document.getElementsByTagName('youtube-notes')[0].change2ViewNotes();
+        } else {
+          console.log("Unexpected URL"); // Scaffolding
+        }
+
         next();
       });
 
