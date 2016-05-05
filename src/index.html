@@ -27,31 +27,43 @@
         next();
       });
 
-      // Called when user navigates to any valid or invalid web page?
-      // Called when user navigates to a view.
-      page('/:event', function (context, next) {
+      // 3 functions; 1 is called when user navigates to a view.
+      page('/choose-video', function (context, next) {
         context.handled = true;
 
         console.log(context);
-        changeEventId(context.params.event);
-
-        if (context.params.event === "choose-video") {
-          document.getElementsByTagName('youtube-notes')[0].change2ViewChoose();
-        } else if (context.params.event === "watch-video") {
-          document.getElementsByTagName('youtube-notes')[0].change2ViewWatch();
-        } else if (context.params.event === "save-notes") {
-          document.getElementsByTagName('youtube-notes')[0].change2ViewNotes();
-        } else {
-          console.log("Unexpected URL"); // Scaffolding
-        }
+        document.getElementsByTagName('youtube-notes')[0].change2ViewChoose();
 
         next();
       });
 
-      function changeEventId(newId) {
-        // Causes error because <youtube-notes> does not begin with event="".
-        //document.getElementsByTagName('youtube-notes')[0].setAttribute('event', newId);
-      }
+      page('/watch-video', function (context, next) {
+        context.handled = true;
+
+        console.log(context);
+        document.getElementsByTagName('youtube-notes')[0].change2ViewWatch();
+
+        next();
+      });
+
+      page('/save-notes', function (context, next) {
+        context.handled = true;
+
+        console.log(context);
+        document.getElementsByTagName('youtube-notes')[0].change2ViewNotes();
+
+        next();
+      });
+
+      // Should not be reached until watch-video adds a query to the URL.
+      page('/:event', function (context, next) {
+        context.handled = true; // Since not desired case, shouldn't handle it.
+
+        console.log(context);
+        console.log("Unexpected URL"); // Scaffolding
+
+        next();
+      });
 
       page.start();
     })();
