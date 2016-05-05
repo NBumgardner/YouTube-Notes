@@ -20,6 +20,16 @@
       </nav>
     </header>
 
+    <p>
+      <label>URL: <input type="text" id="url_bar" placeholder="[Video URL]" size="80" value=""></label>
+    </p>
+
+    <template is="dom-if" if="{{flagList_}}">
+      <p>
+        <label><input type="text" id="search_bar" size="80" value=""> <button>Search</button></label>
+      </p>
+    </template>
+
     <template is="dom-if" if="{{flagList_}}">
       <div>Choose Video content</div>
     </template>
@@ -34,8 +44,12 @@
     <template is="dom-if" if="{{flagNotes_}}">
       <article>
         <div>Save Notes content</div>
-        <p>Notes <button>Copy to Clipboard</button></p>
-        <textarea rows="8" cols="88"></textarea>
+        <p>
+          <strong>Notes</strong>
+          <label><input type="checkbox" id="edit_text" value="edit_text_value"> Unlocked {{flagNotes_}}</label>
+          <button>Copy to Clipboard</button>
+        </p>
+        <textarea rows="8" cols="80"></textarea>
       </article>
     </template>
 
