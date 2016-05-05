@@ -22,6 +22,11 @@
 
     <template is="dom-if" if="{{flagList_}}">
       <div>Choose Video content</div>
+      <p>
+        <label><input type="text" id="search_bar" size="72" value=""> <button>Search</button></label>
+      </p>
+      <!-- TODO: Search button dynamically inserts videos into the list below. -->
+      <ul class="video-list"></ul>
     </template>
 
     <template is="dom-if" if="{{flagVideo_}}">
@@ -34,8 +39,12 @@
     <template is="dom-if" if="{{flagNotes_}}">
       <article>
         <div>Save Notes content</div>
-        <p>Notes <button>Copy to Clipboard</button></p>
-        <textarea rows="8" cols="88"></textarea>
+        <p>
+          <strong>Notes</strong>
+          <label><input type="checkbox" id="edit_text" value="edit_text_value"> Unlocked {{flagNotes_}}</label>
+          <button>Copy to Clipboard</button>
+        </p>
+        <textarea rows="8" cols="80"></textarea>
       </article>
     </template>
 
