@@ -20,7 +20,7 @@
       //   view with back arrow navigation.
       page('/', function (context, next) {
         context.handled = true;
-        changeEventId(context.params.event);
+        document.getElementsByTagName('youtube-notes')[0].change2ViewChoose();
         next();
       });
 
