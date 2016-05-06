@@ -87,59 +87,19 @@
       },
 
       pauseYTPlayer: function() {
-        /*
-        var iframe = document.getElementsByTagName('iframe')[0];
-        iframe.postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*');
-        */
-        //document.getElementsByTagName('iframe')[0].postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*');
-        //(document.getElementsByTagName('iframe')[0]).postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*');
-        /*
-        var div = document.getElementById("ytplayer");
-        var iframe = div.getElementsByTagName("iframe")[0].contentWindow;
-        //div.style.display = state == 'hide' ? 'none' : '';
-        func = 'pauseVideo';
-        iframe.postMessage('{"event":"command","func":"' + func + '","args":""}','*');
-        */
-        /*
-        var div = document.getElementById("ytplayer");
-        console.log(div); // null
-
-        var div = this.getElementById("ytplayer"); // ERR:  "... this.getElementById is not a function"
-        console.log(div);
-
-        var div = this.$$("iframe").getElementById("ytplayer"); // ERR:  "... this.$$(...).getElementById is not a function"
-        console.log(div);
-        */
-        // this.$.ytplayer_wrapper.postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*'); // ERR:  "... Cannot read property 'postMessage' of undefined"
-        /*
-				var vid = Polymer.dom(this.$$('.ytplayer_wrapper')).children[0];
-				// var vid = Polymer.dom(this.$$('ytplayer_wrapper')).children[0];
-        // vid.setAttribute('selected', false);
-        console.log(vid); // <html lang="en"><head><meta ... </html>
-        console.log(vid[0]); // undefined
-        vid.postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*'); // ERR
-        *//*
-				var vid = Polymer.dom(this.$$('#ytplayer_wrapper')).children[0];
-        console.log(vid); // <iframe ... </iframe>
-        console.log(vid[0]); // undefined
-        vid.postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*'); // ERR
-        *//*
-				var vid = Polymer.dom(this.$$('#ytplayer_wrapper')).children[0].contentWindow;
-        console.log(vid); // <iframe ... </iframe>
-        console.log(vid[0]); // undefined
-        vid.postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*'); // Security ERR
-        */
+        // Pauses video in the Watch Video view. To be called when leaving said view.
 				var vid = Polymer.dom(this.$$('#ytplayer_wrapper')).children[0].contentWindow;
         console.log(vid);
         vid.postMessage('{"event":"command", "func":"pauseVideo", "args":""}', 'https://www.youtube.com');
-        
       },
 
       // 3 Functions for setting the flags when arriving at a view.
       change2ViewChoose: function() {
-        if (this.flagVideo_) this.pauseYTPlayer();
+        if (this.flagVideo_) {
+          this.pauseYTPlayer();
+          this.flagVideo_ = false;
+        }
         this.flagList_ = true;
-        this.flagVideo_ = false;
         this.flagNotes_ = false;
         ;
       },
@@ -150,10 +110,12 @@
         ;
       },
       change2ViewNotes: function() {
-        if (this.flagVideo_) this.pauseYTPlayer();
+        if (this.flagVideo_) {
+          this.pauseYTPlayer();
+          this.flagVideo_ = false;
+        }
         this.flagNotes_ = true;
         this.flagList_ = false;
-        this.flagVideo_ = false;
         ;
       },
 
