@@ -95,34 +95,32 @@
 
       // 3 Functions for setting the flags when arriving at a view.
       change2ViewChoose: function() {
+        this.flagList_ = true;
+        // If leaving *Watch Video* view, pause and hide the video.
         if (this.flagVideo_) {
           this.pauseYTPlayer();
           this.flagVideo_ = false;
         }
-        this.flagList_ = true;
         this.flagNotes_ = false;
-        ;
       },
       change2ViewWatch: function() {
         this.flagVideo_ = true;
         this.flagNotes_ = true;
         this.flagList_ = false;
-        ;
       },
       change2ViewNotes: function() {
+        this.flagNotes_ = true;
+        // If leaving *Watch Video* view, pause and hide the video.
         if (this.flagVideo_) {
           this.pauseYTPlayer();
           this.flagVideo_ = false;
         }
-        this.flagNotes_ = true;
         this.flagList_ = false;
-        ;
       },
 
       attached: function() {
         this.APIKey_ = ""; // TODO: Replace with authentication key.
         this.change2ViewChoose();
-        ;
       }
 
       // Desired Feature: Change rows of textarea based on view.
