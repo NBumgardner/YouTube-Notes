@@ -91,7 +91,7 @@
 				var vid = Polymer.dom(this.$$('#ytplayer_wrapper')).children[0];
         vid.contentWindow.postMessage(
           '{"event":"command", "func":"pauseVideo", "args":""}',
-          'https://www.youtube.com'
+          'http://localhost:8080'
         );
       },
 
