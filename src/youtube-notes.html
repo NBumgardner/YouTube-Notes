@@ -84,38 +84,28 @@
         }
       },
 
-      // 4 Functions for setting the flags when arriving at a view.
-      removeAllViews: function() {
-        this.flagList_ = false;
+      // 3 Functions for setting the flags when arriving at a view.
+      change2ViewChoose: function() {
+        this.flagList_ = true;
         this.flagVideo_ = false;
         this.flagNotes_ = false;
-      },
-      change2ViewChoose: function() {
-        //removeAllViews();
-        this.removeAllViews();
-        this.flagList_ = true;
-        //this.flagVideo_ = false;
-        //this.flagNotes_ = false;
         ;
       },
       change2ViewWatch: function() {
-        //removeAllViews();
-        this.removeAllViews();
         this.flagVideo_ = true;
         this.flagNotes_ = true;
+        this.flagList_ = false;
         ;
       },
       change2ViewNotes: function() {
-        //removeAllViews();
-        this.removeAllViews();
         this.flagNotes_ = true;
+        this.flagList_ = false;
+        this.flagVideo_ = false;
         ;
       },
 
       attached: function() {
         this.APIKey_ = ""; // TODO: Replace with authentication key.
-        // document.getElementById
-        //change2ViewChoose();
         this.change2ViewChoose();
         ;
       }
