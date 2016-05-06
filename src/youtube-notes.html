@@ -95,6 +95,13 @@
         );
       },
 
+      setYTPlayerSrc: function() {
+        var strSettings = '?origin=http://localhost:8080'
+          + '&autoplay=1&enablejsapi=1&rel=0';
+        var vid = Polymer.dom(this.$$('#ytplayer_wrapper')).children[0];
+        vid.src = strSettings;
+      },
+
       // 3 Functions for setting the flags when arriving at a view.
       change2ViewChoose: function() {
         this.flagList_ = true;
