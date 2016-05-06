@@ -71,16 +71,16 @@
 
         // 3 flags to enable and disable above templates.
         flagList_: {
-          type: Boolean,
-          value: false
+          type: Boolean//,
+          //value: false
         },
         flagVideo_: {
-          type: Boolean,
-          value: false
+          type: Boolean//,
+          //value: false
         },
         flagNotes_: {
-          type: Boolean,
-          value: false
+          type: Boolean//,
+          //value: false
         }
       },
 
@@ -106,8 +106,6 @@
 
       attached: function() {
         this.APIKey_ = ""; // TODO: Replace with authentication key.
-        this.change2ViewChoose();
-        ;
       }
 
       // Desired Feature: Change rows of textarea based on view.
