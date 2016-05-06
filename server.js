@@ -15,12 +15,14 @@ app.use(function (req, res, next) {
   var reqUri = url.parse(req.url);
   // Brainstorming correct regex to cover all valid URLs in the SPA.
   // var regex = /^\/[0-9]+/
-  // var regex_views = /^\/(choose-video|watch-video|save-notes)$/
+  var regex_views = /^\/(choose-video|watch-video|save-notes)$/;
   // var regex_views_with_search = /^\/(choose-video(\/\w+)*|watch-video|save-notes)$/
   // var regex_youtube = /^http://(?:www\.)?youtu(?:be\.com/watch\?v=|\.be/)([\w\-]+)(&(amp;)?[\w\?=]*)?$/
   // regex = regex;
-  // if (regex.test(requestURI.pathname)) {
-  if (/^\/[0-9]+/.test(reqUri.pathname)) {
+  var regex = regex_views;
+  console.log(reqUri);
+  if (regex.test(reqUri.pathname)) {
+  //if (/^\/[0-9]+/.test(reqUri.pathname)) {
     fs.readFile('./dist/index.html', { encoding: 'utf8' }, function (err, data) {
       if (err) {
         throw err;
