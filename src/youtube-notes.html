@@ -88,8 +88,8 @@
 
       pauseYTPlayer: function() {
         // Pauses video in the Watch Video view. To be called when leaving said view.
-				var vid = Polymer.dom(this.$$('#ytplayer_wrapper')).children[0].contentWindow;
-        vid.postMessage(
+				var vid = Polymer.dom(this.$$('#ytplayer_wrapper')).children[0];
+        vid.contentWindow.postMessage(
           '{"event":"command", "func":"pauseVideo", "args":""}',
           'https://www.youtube.com'
         );
