@@ -10,21 +10,14 @@ var app = connect();
 app.use(serveStatic('./dist'));
 app.use(serveStatic('./'));
 
-// TODO: Debug refresh going to wrong view. Problem may lie elsewhere.
+// TODO: Debug refresh feature. Currently goes to *Choose-View*, instead of the current view.
+//   Problem may lie elsewhere, such as index.html. Errors look like:
+//   "watch-video:44 Uncaught TypeError: Cannot read property 'change2ViewWatch' of undefined"
+
 // Map all the expected SPA (Single Page App.) URLs to the root index.html
 app.use(function (req, res, next) {
   var reqUri = url.parse(req.url);
-  /*
-  // Brainstorm correct regex to cover all valid URLs in the SPA.
-  var regex = /^\/[0-9]+/
-  var regex_views = /^\/(choose-video|watch-video|save-notes)$/
-  var regex_views_with_search = /^\/(choose-video(\/\w+)*|watch-video|save-notes)$/
-  var regex_youtube = /^http://(?:www\.)?youtu(?:be\.com/watch\?v=|\.be/)([\w\-]+)(&(amp;)?[\w\?=]*)?$/
-  regex = regex;
-  */
-  // regex recognizes URLs of the three views.
-  //   Refresh does not give error when URL is recognized.
-  //   Not guaranteed to show correct view when refreshed.
+  // regex only recognizes URLs of the three views.
   var regex = /^\/(choose-video|watch-video|save-notes)$/;
 
   //if (true) { // To skip test: Comment-in this, comment-out below line.
