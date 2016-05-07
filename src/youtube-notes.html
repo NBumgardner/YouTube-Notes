@@ -27,7 +27,9 @@
           value=""> <button>Search</button></label>
       </p>
       <!-- TODO: Search button dynamically inserts videos into the list below. -->
-      <ul class="video-list"></ul>
+      <ul class="video-list">
+        <li><button onclick="setYTPlayerSrc_Default()">SCAFFOLDING: Set to current video.</button></li>
+      </ul>
     </template>
 
     <template is="dom-if" if="{{flagVideo_}}">
@@ -93,6 +95,21 @@
           '{"event":"command", "func":"pauseVideo", "args":""}',
           'https://www.youtube.com'
         );
+      },
+
+      setYTPlayerSrc: function(videoStr) {
+        // videoStr:  Code of the video to show.
+        if (/^[\w\-]+$/.test(videoStr)) {
+          var urlStr = 'http://www.youtube.com/embed/';
+          var settingStr = '?origin=http://localhost:8080'
+            + '&autoplay=1&enablejsapi=1&rel=0';
+          var vid = Polymer.dom(this.$$('#ytplayer_wrapper')).children[0];
+          vid.src = urlStr + videoStr + strInitstrSettings;
+        }
+      },
+
+      setYTPlayerSrc_Default: function() {
+        setYTPlayerSrc('M7lc1UVf-VE');
       },
 
       // 3 Functions for setting the flags when arriving at a view.
