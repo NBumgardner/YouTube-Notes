@@ -4,8 +4,13 @@
 
   <template>
     <style>
-      h1 {
+      h1, h2 {
         color: maroon;
+      }
+      h2 {
+        font-size: 12px;
+        margin: 0px;
+        margin-top: 10px;
       }
       div {
         overflow: hidden;
@@ -20,6 +25,7 @@
       }
       .HeaderInnerWrapper {
         background-color: #fff;
+        padding: 10px;
       }
       .Masthead {
         padding: 10px;
@@ -29,19 +35,27 @@
         float: left;
       }
       .MainNav {
-        clear: left;
         float: left;
       }
-      .ChooseVideo {}
-      .WatchVideo {}
+      .ChooseVideo {
+        background-color: #fff;
+      }
+      .WatchVideo {
+        background-color: #fff;
+        width: 640px;
+        padding-top: 16px;
+      }
       .SaveLoadNotes {}
       /* TODO: Navigation only goes below the heading while narrow window. */
       @media (min-width: 700px) {
-        .Title h1 {
-          /*
-          position: absolute;
-          bottom: 0;
-          */
+        .MainNav {
+        margin-top: 40px;
+        margin-left: 6px;
+        }
+      }
+      @media (max-width: 700px) {
+        .Title {
+          float: none;
         }
       }
     </style>
@@ -61,7 +75,7 @@
       <div class="ContentWrapper">
         <template is="dom-if" if="{{flagList_}}">
           <div class="ChooseVideo">
-            <div>Choose Video content</div>
+            <h2>Choose Video content</h2>
             <p>
               <label><input type="text" id="search_bar" size="72"
                 value=""> <button>Search</button></label>
@@ -72,7 +86,7 @@
         </template>
         <template is="dom-if" if="{{flagVideo_}}">
           <div class="WatchVideo">
-            <div>Watch Video content</div>
+            <h2>Watch Video content</h2>
             <div id="ytplayer_wrapper">
             <iframe id="ytplayer" type="text/html" width="640" height="390"
               src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://localhost:8080&enablejsapi=1&rel=0"
@@ -83,7 +97,7 @@
         <template is="dom-if" if="{{flagNotes_}}">
           <div class="SaveLoadNotes">
             <article>
-              <div>Save Notes content</div>
+              <h2>Save Notes content</h2>
               <p>
                 <strong>Notes</strong>
                 <label><input type="checkbox" id="edit_text"
