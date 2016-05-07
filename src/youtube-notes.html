@@ -46,6 +46,10 @@
         padding-top: 16px;
       }
       .SaveLoadNotes {}
+      .NotesHeaderBar {
+        background-color: #fff;
+        width: 640px;
+      }
       /* TODO: Navigation only goes below the heading while narrow window. */
       @media (min-width: 700px) {
         .MainNav {
@@ -97,13 +101,15 @@
         <template is="dom-if" if="{{flagNotes_}}">
           <div class="SaveLoadNotes">
             <article>
-              <h2>Save Notes content</h2>
-              <p>
-                <strong>Notes</strong>
-                <label><input type="checkbox" id="edit_text"
-                  value="edit_text_value"> Unlocked {{flagNotes_}}</label>
-                <button>Copy to Clipboard</button>
-              </p>
+              <div class="NotesHeaderBar">
+                <h2>Save Notes content</h2>
+                <p>
+                  <strong>Notes</strong>
+                  <label><input type="checkbox" id="edit_text"
+                    value="edit_text_value"> Unlocked {{flagNotes_}}</label>
+                  <button>Copy to Clipboard</button>
+                </p>
+              </div>
               <textarea rows="8" cols="80"></textarea>
             </article>
           <div>
