@@ -7,24 +7,56 @@
       h1 {
         color: maroon;
       }
-      header {
-        background: #fff;
+      div {
+        overflow: hidden;
       }
-      .YouTubeNotesWrapper {}
+      .YouTubeNotesWrapper {
+        margin-left: 6px;
+        margin-right: 6px;
+      }
+      .HeaderOuterWrapper {
+        background-color: maroon;
+        padding: 10px;
+      }
+      .HeaderInnerWrapper {
+        background-color: #fff;
+      }
+      .Masthead {
+        padding: 10px;
+        position: relative;
+      }
+      .Title {
+        float: left;
+      }
+      .MainNav {
+        clear: left;
+        float: left;
+      }
       .ChooseVideo {}
       .WatchVideo {}
       .SaveLoadNotes {}
+      /* TODO: Navigation only goes below the heading while narrow window.
+      @media (min-width: 700px) {
+        .Title h1 {
+          /*
+          position: absolute;
+          bottom: 0;
+          */
+        }
+      }
     </style>
     <div class="YouTubeNotesWrapper">
-      <div class="HeaderWrapper">
-        <header class="MastHead">
-          <div class="Title"><h1>YouTube Notes</h1></div>
-          <nav class="MainNav">
-            <a href="/choose-video">Choose Video</a>
-            <a href="/watch-video">Watch Video</a>
-            <a href="/save-notes">Load/Save Notes</a>
-          </nav>
-        </header>
+      <div class="HeaderOuterWrapper">
+        <div class="HeaderInnerWrapper">
+          <header class="MastHead">
+            <div class="Title"><h1>YouTube Notes</h1></div>
+            <nav class="MainNav">
+              <a href="/choose-video">Choose Video</a>
+              <a href="/watch-video">Watch Video</a>
+              <a href="/save-notes">Load/Save Notes</a>
+            </nav>
+          </header>
+        </div>
       </div>
       <div class="ContentWrapper">
         <template is="dom-if" if="{{flagList_}}">
