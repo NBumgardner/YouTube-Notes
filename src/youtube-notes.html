@@ -10,49 +10,60 @@
       header {
         background: #fff;
       }
+      .YouTubeNotesWrapper {}
+      .ChooseVideo {}
+      .WatchVideo {}
+      .SaveLoadNotes {}
     </style>
-    <header>
-      <h1>YouTube Notes</h1>
-      <nav>
-        <a href="/choose-video">Choose Video</a>
-        <a href="/watch-video">Watch Video</a>
-        <a href="/save-notes">Load/Save Notes</a>
-      </nav>
-    </header>
-
-    <template is="dom-if" if="{{flagList_}}">
-      <div>Choose Video content</div>
-      <p>
-        <label><input type="text" id="search_bar" size="72"
-          value=""> <button>Search</button></label>
-      </p>
-      <!-- TODO: Search button dynamically inserts videos into the list below. -->
-      <ul class="video-list"></ul>
-    </template>
-
-    <template is="dom-if" if="{{flagVideo_}}">
-      <div>Watch Video content</div>
-      <div id="ytplayer_wrapper">
-      <iframe id="ytplayer" type="text/html" width="640" height="390"
-        src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://localhost:8080&enablejsapi=1&rel=0"
-        frameborder="0"></iframe>
+    <div class="YouTubeNotesWrapper">
+      <div class="HeaderWrapper">
+        <header class="MastHead">
+          <div class="Title"><h1>YouTube Notes</h1></div>
+          <nav class="MainNav">
+            <a href="/choose-video">Choose Video</a>
+            <a href="/watch-video">Watch Video</a>
+            <a href="/save-notes">Load/Save Notes</a>
+          </nav>
+        </header>
       </div>
-    </template>
-
-    <template is="dom-if" if="{{flagNotes_}}">
-      <article>
-        <div>Save Notes content</div>
-        <p>
-          <strong>Notes</strong>
-          <label><input type="checkbox" id="edit_text"
-            value="edit_text_value"> Unlocked {{flagNotes_}}</label>
-          <button>Copy to Clipboard</button>
-        </p>
-        <textarea rows="8" cols="80"></textarea>
-      </article>
-    </template>
-
-    <p>Footer</p>
+      <div class="ContentWrapper">
+        <template is="dom-if" if="{{flagList_}}">
+          <div class="ChooseVideo">
+            <div>Choose Video content</div>
+            <p>
+              <label><input type="text" id="search_bar" size="72"
+                value=""> <button>Search</button></label>
+            </p>
+            <!-- TODO: Search button dynamically inserts videos into the list below. -->
+            <ul class="video-list"></ul>
+          </div>
+        </template>
+        <template is="dom-if" if="{{flagVideo_}}">
+          <div class="WatchVideo">
+            <div>Watch Video content</div>
+            <div id="ytplayer_wrapper">
+            <iframe id="ytplayer" type="text/html" width="640" height="390"
+              src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://localhost:8080&enablejsapi=1&rel=0"
+              frameborder="0"></iframe>
+            </div>
+          </div>
+        </template>
+        <template is="dom-if" if="{{flagNotes_}}">
+          <div class="SaveLoadNotes">
+            <article>
+              <div>Save Notes content</div>
+              <p>
+                <strong>Notes</strong>
+                <label><input type="checkbox" id="edit_text"
+                  value="edit_text_value"> Unlocked {{flagNotes_}}</label>
+                <button>Copy to Clipboard</button>
+              </p>
+              <textarea rows="8" cols="80"></textarea>
+            </article>
+          <div>
+        </template>
+      </div>
+    </div>
 
   </template>
 
